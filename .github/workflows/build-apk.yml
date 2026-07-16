@@ -178,9 +178,9 @@ jobs:
             echo "============================================================"
             echo " RAPPORT DIAGNOSTIC HTML VERS APK"
             echo "============================================================"
-            echo "Application : ForgeAPK Studio"
-            echo "Package     : dev.ghostbuilderdev.mixai.forgeapkstudio.a099pluf"
-            echo "Version     : 1.0.0 (206401896)"
+            echo "Application : Mon application"
+            echo "Package     : com.yoann.monapplication"
+            echo "Version     : 1.0.0 (206403626)"
             echo "Date UTC    : $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
             echo "Dépôt       : ${{ github.repository }}"
             echo "Branche     : ${{ github.ref_name }}"
@@ -350,13 +350,13 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p apk-output
-          APK_FILE="apk-output/ForgeAPK-Studio-dev.ghostbuilderdev.mixai.forgeapkstudio.a099pluf-v206401896-release.apk"
+          APK_FILE="apk-output/Mon-application-com.yoann.monapplication-v206403626-release.apk"
           cp generated/app/build/outputs/apk/debug/app-release.apk "$APK_FILE"
 
           {
             echo "APK=$APK_FILE"
-            echo "PACKAGE_ATTENDU=dev.ghostbuilderdev.mixai.forgeapkstudio.a099pluf"
-            echo "VERSION_CODE_ATTENDU=206401896"
+            echo "PACKAGE_ATTENDU=com.yoann.monapplication"
+            echo "VERSION_CODE_ATTENDU=206403626"
             echo "SHA256=$(sha256sum "$APK_FILE" | awk '{print $1}')"
             "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$APK_FILE" | head -n 8
             "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs "$APK_FILE"
@@ -365,14 +365,14 @@ jobs:
           ACTUAL_PACKAGE=$("$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$APK_FILE" | awk -F"'" '/^package: name=/{print $2; exit}')
           ACTUAL_VERSION=$("$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$APK_FILE" | awk -F"'" '/^package: name=/{print $4; exit}')
 
-          [ "$ACTUAL_PACKAGE" = "dev.ghostbuilderdev.mixai.forgeapkstudio.a099pluf" ] || exit 1
-          [ "$ACTUAL_VERSION" = "206401896" ] || exit 1
+          [ "$ACTUAL_PACKAGE" = "com.yoann.monapplication" ] || exit 1
+          [ "$ACTUAL_VERSION" = "206403626" ] || exit 1
 
       - name: Publier l’APK comme artefact
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: ForgeAPK-Studio-apk
+          name: Mon-application-apk
           path: |
             apk-output/*.apk
             apk-output/apk-verification.txt
