@@ -3,7 +3,6 @@ name: Build uploaded HTML project
 on:
   workflow_dispatch:
   push:
-    branches: [main, master]
     paths:
       - project.zip
 
@@ -132,8 +131,7 @@ jobs:
               exit 1
             }
           else
-            printf '%s
-' "$CURRENT_FP" > "$FINGERPRINT_FILE"
+            printf '%s\n' "$CURRENT_FP" > "$FINGERPRINT_FILE"
           fi
 
           git config user.name "github-actions[bot]"
@@ -156,8 +154,7 @@ jobs:
           fi
 
           cp "$KEYSTORE" generated/.signing/html-apk-stable.p12
-          printf '%s
-' "$CURRENT_FP" > generated/.signing/html-apk-stable.sha256
+          printf '%s\n' "$CURRENT_FP" > generated/.signing/html-apk-stable.sha256
           echo "Empreinte stable : $CURRENT_FP"
 
       - name: Compiler l’APK
@@ -183,7 +180,7 @@ jobs:
             echo "============================================================"
             echo "Application : Mon application"
             echo "Package     : dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8"
-            echo "Version     : 1.0.0 (206397897)"
+            echo "Version     : 1.0.0 (206400014)"
             echo "Date UTC    : $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
             echo "Dépôt       : ${{ github.repository }}"
             echo "Branche     : ${{ github.ref_name }}"
@@ -353,13 +350,13 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p apk-output
-          APK_FILE="apk-output/Mon-application-dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8-v206397897-debug.apk"
+          APK_FILE="apk-output/Mon-application-dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8-v206400014-debug.apk"
           cp generated/app/build/outputs/apk/debug/app-debug.apk "$APK_FILE"
 
           {
             echo "APK=$APK_FILE"
             echo "PACKAGE_ATTENDU=dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8"
-            echo "VERSION_CODE_ATTENDU=206397897"
+            echo "VERSION_CODE_ATTENDU=206400014"
             echo "SHA256=$(sha256sum "$APK_FILE" | awk '{print $1}')"
             "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$APK_FILE" | head -n 8
             "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs "$APK_FILE"
@@ -369,7 +366,7 @@ jobs:
           ACTUAL_VERSION=$("$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$APK_FILE" | awk -F"'" '/^package: name=/{print $4; exit}')
 
           [ "$ACTUAL_PACKAGE" = "dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8" ] || exit 1
-          [ "$ACTUAL_VERSION" = "206397897" ] || exit 1
+          [ "$ACTUAL_VERSION" = "206400014" ] || exit 1
 
       - name: Publier l’APK comme artefact
         if: success()
@@ -419,8 +416,7 @@ jobs:
             cat generated/LOCAL_WEB_DIAGNOSTIC.txt 2>/dev/null || echo "Diagnostic local indisponible"
             echo
             echo "=== FICHIERS APK / RAPPORTS PRODUITS ==="
-            find apk-output -maxdepth 2 -type f -printf '%p | %s octets
-' 2>/dev/null || true
+            find apk-output -maxdepth 2 -type f -printf '%p | %s octets\n' 2>/dev/null || true
             echo
             echo "=== ÉTAT DE LA RELEASE ==="
             if [ -d apk-output ] && find apk-output -name '*.apk' -type f | grep -q .; then
