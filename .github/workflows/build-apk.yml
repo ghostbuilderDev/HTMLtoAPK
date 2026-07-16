@@ -153,7 +153,7 @@ jobs:
             echo "============================================================"
             echo "Application : Mon application"
             echo "Package     : com.yoann.monapplication"
-            echo "Version     : 1.0.0 (206393313)"
+            echo "Version     : 1.0.0 (206393818)"
             echo "Date UTC    : $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
             echo "Dépôt       : ${{ github.repository }}"
             echo "Branche     : ${{ github.ref_name }}"
