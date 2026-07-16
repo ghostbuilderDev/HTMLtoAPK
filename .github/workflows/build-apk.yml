@@ -183,7 +183,7 @@ jobs:
             echo "============================================================"
             echo "Application : Mon application"
             echo "Package     : dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8"
-            echo "Version     : 1.0.0 (206396034)"
+            echo "Version     : 1.0.0 (206397897)"
             echo "Date UTC    : $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
             echo "Dépôt       : ${{ github.repository }}"
             echo "Branche     : ${{ github.ref_name }}"
@@ -198,7 +198,7 @@ jobs:
               echo "Clé stable absente."
             fi
             echo
-            echo "=== ANALYSE AUTOMATIQUE DE LA CAUSE PROBABLE ===
+            echo "=== ANALYSE AUTOMATIQUE DE LA CAUSE PROBABLE ==="
             FOUND=0
             if [ -f build.log ]; then
               if grep -Eqi "Could not find or load main class android.useAndroidX=true|ClassNotFoundException: android.useAndroidX=true" build.log; then
@@ -353,13 +353,13 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p apk-output
-          APK_FILE="apk-output/Mon-application-dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8-v206396034-debug.apk"
+          APK_FILE="apk-output/Mon-application-dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8-v206397897-debug.apk"
           cp generated/app/build/outputs/apk/debug/app-debug.apk "$APK_FILE"
 
           {
             echo "APK=$APK_FILE"
             echo "PACKAGE_ATTENDU=dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8"
-            echo "VERSION_CODE_ATTENDU=206396034"
+            echo "VERSION_CODE_ATTENDU=206397897"
             echo "SHA256=$(sha256sum "$APK_FILE" | awk '{print $1}')"
             "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$APK_FILE" | head -n 8
             "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs "$APK_FILE"
@@ -369,7 +369,7 @@ jobs:
           ACTUAL_VERSION=$("$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$APK_FILE" | awk -F"'" '/^package: name=/{print $4; exit}')
 
           [ "$ACTUAL_PACKAGE" = "dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8" ] || exit 1
-          [ "$ACTUAL_VERSION" = "206396034" ] || exit 1
+          [ "$ACTUAL_VERSION" = "206397897" ] || exit 1
 
       - name: Publier l’APK comme artefact
         if: success()
@@ -389,4 +389,74 @@ jobs:
             gh release upload generated-apk apk-output/*.apk apk-output/apk-verification.txt --clobber
           else
             gh release create generated-apk apk-output/*.apk apk-output/apk-verification.txt --title "APK généré" --notes "APK debug généré automatiquement par HTML vers APK Builder."
+          fi
+
+      - name: Finaliser le rapport d’anomalie
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p diagnostics
+          {
+            echo "============================================================"
+            echo " RAPPORT FINAL D’ANOMALIE HTML VERS APK"
+            echo "============================================================"
+            echo "Dépôt : $GITHUB_REPOSITORY"
+            echo "Branche : $GITHUB_REF_NAME"
+            echo "Run : #$GITHUB_RUN_NUMBER"
+            echo "URL : https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            echo "Date UTC : $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+            echo
+            echo "=== CODE DE SORTIE GRADLE ==="
+            cat build-exit-code.txt 2>/dev/null || echo "indisponible"
+            echo
+            echo "=== JOURNAL GRADLE ==="
+            cat build.log 2>/dev/null || echo "build.log indisponible"
+            echo
+            echo "=== VÉRIFICATION APK ==="
+            cat apk-output/apk-verification.txt 2>/dev/null || echo "apk-verification.txt indisponible"
+            echo
+            echo "=== DIAGNOSTIC LOCAL HTML ==="
+            cat generated/LOCAL_WEB_DIAGNOSTIC.txt 2>/dev/null || echo "Diagnostic local indisponible"
+            echo
+            echo "=== FICHIERS APK / RAPPORTS PRODUITS ==="
+            find apk-output -maxdepth 2 -type f -printf '%p | %s octets
+' 2>/dev/null || true
+            echo
+            echo "=== ÉTAT DE LA RELEASE ==="
+            if [ -d apk-output ] && find apk-output -name '*.apk' -type f | grep -q .; then
+              echo "Un fichier APK a été produit localement par le workflow."
+            else
+              echo "Aucun APK final présent dans apk-output."
+            fi
+            echo
+            echo "============================================================"
+            echo " FIN DU RAPPORT FINAL"
+            echo "============================================================"
+          } > diagnostics/latest-diagnostic.txt 2>&1
+
+      - name: Publier le rapport final d’anomalie
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: diagnostic-final-apk-run-${{ github.run_number }}
+          path: |
+            diagnostics/latest-diagnostic.txt
+            build.log
+            build-exit-code.txt
+            apk-output/apk-verification.txt
+            generated/LOCAL_WEB_DIAGNOSTIC.txt
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Enregistrer le rapport final dans le dépôt
+        if: always()
+        continue-on-error: true
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add diagnostics/latest-diagnostic.txt
+          if ! git diff --cached --quiet; then
+            git commit -m "Final APK diagnostic #${{ github.run_number }}"
+            git push origin "HEAD:${{ github.ref_name }}" || true
           fi
