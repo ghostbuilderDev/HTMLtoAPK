@@ -114,7 +114,7 @@ jobs:
           FINGERPRINT_FILE=".signing/html-apk-stable.sha256"
 
           if [ ! -f "$KEYSTORE" ]; then
-            keytool -genkeypair               -keystore "$KEYSTORE"               -storetype PKCS12               -storepass "HTML_APK_BUILDER_STABLE_2026"               -keypass "HTML_APK_BUILDER_STABLE_2026"               -alias "html-apk-stable"               -keyalg RSA               -keysize 2048               -validity 10000               -dname "CN=ForgeAPK Studio, OU=Local Apps, O=GhostBuilder, L=Paris, ST=Ile-de-France, C=FR"
+            keytool -genkeypair               -keystore "$KEYSTORE"               -storetype PKCS12               -storepass "HTML_APK_BUILDER_STABLE_2026"               -keypass "HTML_APK_BUILDER_STABLE_2026"               -alias "html-apk-stable"               -keyalg RSA               -keysize 2048               -validity 10000               -dname "CN=HTML APK Builder, OU=Local Apps, O=GhostBuilder, L=Paris, ST=Ile-de-France, C=FR"
           fi
 
           CURRENT_FP=$(keytool -list -v             -keystore "$KEYSTORE"             -storetype PKCS12             -storepass "HTML_APK_BUILDER_STABLE_2026"             -alias "html-apk-stable" 2>/dev/null             | awk -F'SHA256: ' '/SHA256:/{gsub(":","",$2); print tolower($2); exit}')
@@ -164,7 +164,7 @@ jobs:
         run: |
           set +e
           set -o pipefail
-          gradle --no-daemon --console=plain :app:assembleRelease --stacktrace 2>&1 | tee ../build.log
+          gradle --no-daemon --console=plain :app:assembleDebug --stacktrace 2>&1 | tee ../build.log
           BUILD_EXIT=${PIPESTATUS[0]}
           echo "${BUILD_EXIT}" > ../build-exit-code.txt
           exit "${BUILD_EXIT}"
@@ -179,8 +179,8 @@ jobs:
             echo " RAPPORT DIAGNOSTIC HTML VERS APK"
             echo "============================================================"
             echo "Application : Mon application"
-            echo "Package     : com.yoann.monapplication"
-            echo "Version     : 1.0.0 (206403626)"
+            echo "Package     : dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8"
+            echo "Version     : 1.0.0 (206408640)"
             echo "Date UTC    : $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
             echo "Dépôt       : ${{ github.repository }}"
             echo "Branche     : ${{ github.ref_name }}"
@@ -350,13 +350,13 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p apk-output
-          APK_FILE="apk-output/Mon-application-com.yoann.monapplication-v206403626-release.apk"
-          cp generated/app/build/outputs/apk/debug/app-release.apk "$APK_FILE"
+          APK_FILE="apk-output/Mon-application-dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8-v206408640-debug.apk"
+          cp generated/app/build/outputs/apk/debug/app-debug.apk "$APK_FILE"
 
           {
             echo "APK=$APK_FILE"
-            echo "PACKAGE_ATTENDU=com.yoann.monapplication"
-            echo "VERSION_CODE_ATTENDU=206403626"
+            echo "PACKAGE_ATTENDU=dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8"
+            echo "VERSION_CODE_ATTENDU=206408640"
             echo "SHA256=$(sha256sum "$APK_FILE" | awk '{print $1}')"
             "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$APK_FILE" | head -n 8
             "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs "$APK_FILE"
@@ -365,8 +365,8 @@ jobs:
           ACTUAL_PACKAGE=$("$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$APK_FILE" | awk -F"'" '/^package: name=/{print $2; exit}')
           ACTUAL_VERSION=$("$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$APK_FILE" | awk -F"'" '/^package: name=/{print $4; exit}')
 
-          [ "$ACTUAL_PACKAGE" = "com.yoann.monapplication" ] || exit 1
-          [ "$ACTUAL_VERSION" = "206403626" ] || exit 1
+          [ "$ACTUAL_PACKAGE" = "dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8" ] || exit 1
+          [ "$ACTUAL_VERSION" = "206408640" ] || exit 1
 
       - name: Publier l’APK comme artefact
         if: success()
@@ -385,7 +385,7 @@ jobs:
           if gh release view generated-apk >/dev/null 2>&1; then
             gh release upload generated-apk apk-output/*.apk apk-output/apk-verification.txt --clobber
           else
-            gh release create generated-apk apk-output/*.apk apk-output/apk-verification.txt --title "APK généré" --notes "APK release généré automatiquement par ForgeAPK Studio."
+            gh release create generated-apk apk-output/*.apk apk-output/apk-verification.txt --title "APK généré" --notes "APK debug généré automatiquement par HTML vers APK Builder."
           fi
 
       - name: Finaliser le rapport d’anomalie
