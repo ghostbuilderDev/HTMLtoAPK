@@ -1,16 +1,45 @@
 ============================================================
- RAPPORT FINAL D’ANOMALIE HTML VERS APK
+ RAPPORT DIAGNOSTIC HTML VERS APK
 ============================================================
-Dépôt : ghostbuilderDev/HTMLtoAPK
-Branche : main
-Run : #14
-URL : https://github.com/ghostbuilderDev/HTMLtoAPK/actions/runs/29542845636
-Date UTC : 2026-07-16 23:45:50 UTC
+Application : Briefing au pied de l'opération
+Package     : dev.utilisateur.depot.briefingaupieddeloperation.a1wtgn1w
+Version     : 1.0.0 (206433632)
+Date UTC    : 2026-07-17 06:41:52 UTC
+Dépôt       : ghostbuilderDev/HTMLtoAPK
+Branche     : main
+Run         : #15
+URL du run  : https://github.com/ghostbuilderDev/HTMLtoAPK/actions/runs/29560729331
+État du job : failure
 
-=== CODE DE SORTIE GRADLE ===
-0
+=== SIGNATURE ANDROID ===
+Alias name: html-apk-stable
+Valid from: Thu Jul 16 19:29:26 UTC 2026 until: Mon Dec 01 19:29:26 UTC 2053
+	 SHA256: 04:08:A5:95:DE:15:91:DA:D2:69:E1:B0:81:60:64:BD:C0:0E:5F:14:E4:94:9E:99:BA:29:FD:32:9F:05:EC:A6
 
-=== JOURNAL GRADLE ===
+=== ANALYSE AUTOMATIQUE DE LA CAUSE PROBABLE ===
+- Une tâche Gradle a échoué. Voir ERREURS EXTRAITES et JOURNAL GRADLE.
+
+=== CODE DE SORTIE DE LA COMPILATION ===
+1
+
+=== ERREURS EXTRAITES DU JOURNAL ===
+13:> Task :app:mergeDebugResources FAILED
+14:/home/runner/work/HTMLtoAPK/HTMLtoAPK/generated/app/src/main/res/values/styles.xml:2:4: Failed to flatten XML for resource 'app_name' with error: Invalid unicode escape sequence in string
+21:FAILURE: Build failed with an exception.
+23:* What went wrong:
+24:Execution failed for task ':app:mergeDebugResources'.
+26:   > Resource compilation failed (Failed to compile values resource file /home/runner/work/HTMLtoAPK/HTMLtoAPK/generated/app/build/intermediates/incremental/debug/mergeDebugResources/merged.dir/values/values.xml. Cause: java.lang.IllegalStateException: Can not extract resource from com.android.aaptcompiler.ParsedResource@77cbf5ce.). Check logs for more details.
+33:* Exception is:
+34:org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:mergeDebugResources'.
+43:	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+66:Caused by: org.gradle.workers.internal.DefaultWorkerExecutor$WorkExecutionException: A failure occurred while executing com.android.build.gradle.internal.res.ResourceCompilerRunnable
+167:	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+190:Caused by: com.android.aaptcompiler.ResourceCompilationException: Resource compilation failed (Failed to compile values resource file /home/runner/work/HTMLtoAPK/HTMLtoAPK/generated/app/build/intermediates/incremental/debug/mergeDebugResources/merged.dir/values/values.xml. Cause: java.lang.IllegalStateException: Can not extract resource from com.android.aaptcompiler.ParsedResource@77cbf5ce.). Check logs for more details.
+222:Caused by: com.android.aaptcompiler.ResourceCompilationException: Failed to compile values resource file /home/runner/work/HTMLtoAPK/HTMLtoAPK/generated/app/build/intermediates/incremental/debug/mergeDebugResources/merged.dir/values/values.xml
+229:Caused by: java.lang.IllegalStateException: Can not extract resource from com.android.aaptcompiler.ParsedResource@77cbf5ce.
+236:BUILD FAILED in 11s
+
+=== 500 DERNIÈRES LIGNES DU JOURNAL GRADLE ===
 To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.9/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
 Daemon will be stopped at the end of the build 
 > Task :app:preBuild UP-TO-DATE
@@ -22,96 +51,1233 @@ Daemon will be stopped at the end of the build
 > Task :app:mapDebugSourceSetPaths
 > Task :app:generateDebugResources
 > Task :app:packageDebugResources
-> Task :app:mergeDebugResources
-> Task :app:createDebugCompatibleScreenManifests
-> Task :app:extractDeepLinksDebug
+
+> Task :app:mergeDebugResources FAILED
+/home/runner/work/HTMLtoAPK/HTMLtoAPK/generated/app/src/main/res/values/styles.xml:2:4: Failed to flatten XML for resource 'app_name' with error: Invalid unicode escape sequence in string
+"{str}"
+/home/runner/work/HTMLtoAPK/HTMLtoAPK/generated/app/src/main/res/values/styles.xml:2:4: string/app_name does not contain a valid string resource.
+
 > Task :app:parseDebugLocalResources
-> Task :app:processDebugMainManifest
-> Task :app:processDebugManifest
-> Task :app:mergeDebugShaders
-> Task :app:compileDebugShaders NO-SOURCE
-> Task :app:generateDebugAssets UP-TO-DATE
-> Task :app:mergeDebugAssets
-> Task :app:processDebugManifestForPackage
-> Task :app:compressDebugAssets
-> Task :app:desugarDebugFileDependencies
-> Task :app:processDebugJavaRes NO-SOURCE
-> Task :app:checkDebugDuplicateClasses
-> Task :app:mergeDebugJniLibFolders
-> Task :app:mergeExtDexDebug
-> Task :app:mergeLibDexDebug
-> Task :app:mergeDebugNativeLibs NO-SOURCE
-> Task :app:stripDebugDebugSymbols NO-SOURCE
-> Task :app:validateSigningDebug
-> Task :app:mergeDebugJavaResource
-> Task :app:writeDebugAppMetadata
-> Task :app:writeDebugSigningConfigVersions
-> Task :app:processDebugResources
+gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/compile-1784270502985.json
 
-> Task :app:compileDebugJavaWithJavac
-Note: Some input files use or override a deprecated API.
-Note: Recompile with -Xlint:deprecation for details.
+FAILURE: Build failed with an exception.
 
-> Task :app:dexBuilderDebug
-> Task :app:mergeDebugGlobalSynthetics
-> Task :app:mergeProjectDexDebug
-> Task :app:packageDebug
-> Task :app:createDebugApkListingFileRedirect
-> Task :app:assembleDebug
-gradle/actions: Writing build results to /home/runner/work/_temp/.gradle-actions/build-results/compile-1784245526004.json
+* What went wrong:
+Execution failed for task ':app:mergeDebugResources'.
+> A failure occurred while executing com.android.build.gradle.internal.res.ResourceCompilerRunnable
+   > Resource compilation failed (Failed to compile values resource file /home/runner/work/HTMLtoAPK/HTMLtoAPK/generated/app/build/intermediates/incremental/debug/mergeDebugResources/merged.dir/values/values.xml. Cause: java.lang.IllegalStateException: Can not extract resource from com.android.aaptcompiler.ParsedResource@77cbf5ce.). Check logs for more details.
 
-BUILD SUCCESSFUL in 21s
-32 actionable tasks: 32 executed
+* Try:
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
 
-=== VÉRIFICATION APK ===
-APK=apk-output/Mon-application-dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8-v206408640-debug.apk
-PACKAGE_ATTENDU=dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8
-VERSION_CODE_ATTENDU=206408640
-SHA256=b5e71df0ea8a4a1ee1966f4a3c8489a5f4068f2f82eab3e82e1ea59128e78769
-package: name='dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8' versionCode='206408640' versionName='1.0.0' platformBuildVersionName='15' platformBuildVersionCode='35' compileSdkVersion='35' compileSdkVersionCodename='15'
-sdkVersion:'24'
-targetSdkVersion:'35'
-uses-permission: name='android.permission.INTERNET'
-uses-permission: name='android.permission.ACCESS_NETWORK_STATE'
-uses-permission: name='android.permission.ACCESS_FINE_LOCATION'
-uses-permission: name='android.permission.ACCESS_COARSE_LOCATION'
-uses-permission: name='android.permission.CAMERA'
-Verifies
-Verified using v1 scheme (JAR signing): false
-Verified using v2 scheme (APK Signature Scheme v2): true
-Verified using v3 scheme (APK Signature Scheme v3): false
-Verified using v3.1 scheme (APK Signature Scheme v3.1): false
-Verified using v4 scheme (APK Signature Scheme v4): false
-Verified for SourceStamp: false
-Number of signers: 1
-Signer #1 certificate DN: CN=HTML APK Builder, OU=Local Apps, O=GhostBuilder, L=Paris, ST=Ile-de-France, C=FR
-Signer #1 certificate SHA-256 digest: 0408a595de1591dad269e1b0816064bdc00e5f14e4949e99ba29fd329f05eca6
-Signer #1 certificate SHA-1 digest: 4fbf59bbd409301247b4919ad6d6b2fa7b773787
-Signer #1 certificate MD5 digest: a20fd5adf688df6867746b7be7c9f98c
-Signer #1 key algorithm: RSA
-Signer #1 key size (bits): 2048
-Signer #1 public key SHA-256 digest: b69df4147a45e9703eafd6e55f22fff328dda32f40f25b51ef8676ec96bd860e
-Signer #1 public key SHA-1 digest: 9d9dee8cc27a590aad0884969fc075e22d105a2f
-Signer #1 public key MD5 digest: 0ea13ca23b30f3c818ffb54586ce7068
+* Exception is:
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:mergeDebugResources'.
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:130)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:293)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:128)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:116)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
+Caused by: org.gradle.workers.internal.DefaultWorkerExecutor$WorkExecutionException: A failure occurred while executing com.android.build.gradle.internal.res.ResourceCompilerRunnable
+	at org.gradle.workers.internal.DefaultWorkerExecutor$WorkItemExecution.waitForCompletion(DefaultWorkerExecutor.java:287)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.lambda$waitForItemsAndGatherFailures$2(DefaultAsyncWorkTracker.java:130)
+	at org.gradle.internal.Factories$1.create(Factories.java:31)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocks(DefaultWorkerLeaseService.java:339)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLocks(DefaultWorkerLeaseService.java:322)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withoutLock(DefaultWorkerLeaseService.java:327)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:126)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForItemsAndGatherFailures(DefaultAsyncWorkTracker.java:92)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForAll(DefaultAsyncWorkTracker.java:78)
+	at org.gradle.internal.work.DefaultAsyncWorkTracker.waitForCompletion(DefaultAsyncWorkTracker.java:66)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:252)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:229)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:212)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:195)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:162)
+	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:105)
+	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:59)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:56)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:56)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:44)
+	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:42)
+	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:75)
+	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:50)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:28)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:67)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:37)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:61)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:26)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:69)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:46)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:40)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:29)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:189)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:75)
+	at org.gradle.internal.Either$Right.fold(Either.java:175)
+	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:62)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:73)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:48)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:46)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:35)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:75)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:35)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:49)
+	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:27)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:71)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:39)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:65)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:36)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:105)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:54)
+	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:64)
+	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:43)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.executeWithNonEmptySources(AbstractSkipEmptyWorkStep.java:125)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:56)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:36)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:75)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:41)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$execute$0(AssignMutableWorkspaceStep.java:35)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:289)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:31)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:22)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:48)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:35)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:61)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:127)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:116)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:42)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:331)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:318)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:314)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:303)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:48)
+Caused by: com.android.aaptcompiler.ResourceCompilationException: Resource compilation failed (Failed to compile values resource file /home/runner/work/HTMLtoAPK/HTMLtoAPK/generated/app/build/intermediates/incremental/debug/mergeDebugResources/merged.dir/values/values.xml. Cause: java.lang.IllegalStateException: Can not extract resource from com.android.aaptcompiler.ParsedResource@77cbf5ce.). Check logs for more details.
+	at com.android.aaptcompiler.ResourceCompiler.compileResource(ResourceCompiler.kt:129)
+	at com.android.build.gradle.internal.res.ResourceCompilerRunnable$Companion.compileSingleResource(ResourceCompilerRunnable.kt:34)
+	at com.android.build.gradle.internal.res.ResourceCompilerRunnable.run(ResourceCompilerRunnable.kt:15)
+	at com.android.build.gradle.internal.profile.ProfileAwareWorkAction.execute(ProfileAwareWorkAction.kt:74)
+	at org.gradle.workers.internal.DefaultWorkerServer.execute(DefaultWorkerServer.java:63)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:66)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1$1.create(NoIsolationWorkerFactory.java:62)
+	at org.gradle.internal.classloader.ClassLoaderUtils.executeInClassloader(ClassLoaderUtils.java:100)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.lambda$execute$0(NoIsolationWorkerFactory.java:62)
+	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:44)
+	at org.gradle.workers.internal.AbstractWorker$1.call(AbstractWorker.java:41)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.workers.internal.AbstractWorker.executeWrappedInBuildOperation(AbstractWorker.java:41)
+	at org.gradle.workers.internal.NoIsolationWorkerFactory$1.execute(NoIsolationWorkerFactory.java:59)
+	at org.gradle.workers.internal.DefaultWorkerExecutor.lambda$submitWork$0(DefaultWorkerExecutor.java:174)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runExecution(DefaultConditionalExecutionQueue.java:195)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.access$700(DefaultConditionalExecutionQueue.java:128)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner$1.run(DefaultConditionalExecutionQueue.java:170)
+	at org.gradle.internal.Factories$1.create(Factories.java:31)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.withLocks(DefaultWorkerLeaseService.java:267)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:131)
+	at org.gradle.internal.work.DefaultWorkerLeaseService.runAsWorkerThread(DefaultWorkerLeaseService.java:136)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.runBatch(DefaultConditionalExecutionQueue.java:165)
+	at org.gradle.internal.work.DefaultConditionalExecutionQueue$ExecutionRunner.run(DefaultConditionalExecutionQueue.java:134)
+	... 2 more
+Caused by: com.android.aaptcompiler.ResourceCompilationException: Failed to compile values resource file /home/runner/work/HTMLtoAPK/HTMLtoAPK/generated/app/build/intermediates/incremental/debug/mergeDebugResources/merged.dir/values/values.xml
+	at com.android.aaptcompiler.ResourceCompiler.compileTable(ResourceCompiler.kt:192)
+	at com.android.aaptcompiler.ResourceCompiler.access$compileTable(ResourceCompiler.kt:1)
+	at com.android.aaptcompiler.ResourceCompiler$getCompileMethod$1.invoke(ResourceCompiler.kt:138)
+	at com.android.aaptcompiler.ResourceCompiler$getCompileMethod$1.invoke(ResourceCompiler.kt:138)
+	at com.android.aaptcompiler.ResourceCompiler.compileResource(ResourceCompiler.kt:123)
+	... 31 more
+Caused by: java.lang.IllegalStateException: Can not extract resource from com.android.aaptcompiler.ParsedResource@77cbf5ce.
+	at com.android.aaptcompiler.TableExtractor.extractResourceValues(TableExtractor.kt:270)
+	at com.android.aaptcompiler.TableExtractor.extract(TableExtractor.kt:181)
+	at com.android.aaptcompiler.ResourceCompiler.compileTable(ResourceCompiler.kt:188)
+	... 35 more
 
-=== DIAGNOSTIC LOCAL HTML ===
+
+BUILD FAILED in 11s
+8 actionable tasks: 8 executed
+
+=== VERSIONS DE L’ENVIRONNEMENT ===
+openjdk version "17.0.19" 2026-04-21
+OpenJDK Runtime Environment Temurin-17.0.19+10 (build 17.0.19+10)
+OpenJDK 64-Bit Server VM Temurin-17.0.19+10 (build 17.0.19+10, mixed mode, sharing)
+
+------------------------------------------------------------
+Gradle 8.9
+------------------------------------------------------------
+
+Build time:    2024-07-11 14:37:41 UTC
+Revision:      d536ef36a19186ccc596d8817123e5445f30fef8
+
+Kotlin:        1.9.23
+Groovy:        3.0.21
+Ant:           Apache Ant(TM) version 1.10.13 compiled on January 4 2023
+Launcher JVM:  17.0.19 (Eclipse Adoptium 17.0.19+10)
+Daemon JVM:    /usr/lib/jvm/temurin-17-jdk-amd64 (no JDK specified, using current Java home)
+OS:            Linux 6.17.0-1020-azure amd64
+
+ANDROID_HOME=/usr/local/lib/android/sdk
+ANDROID_SDK_ROOT=/usr/local/lib/android/sdk
+Loading package information...                                                  Loading local repository...                                                     [=========                              ] 25% Loading local repository...       [=========                              ] 25% Fetch remote repository...        [=======================================] 100% Fetch remote repository...       
+Installed packages:
+  Path                               | Version       | Description                      | Location                          
+  -------                            | -------       | -------                          | -------                           
+  build-tools;34.0.0                 | 34.0.0        | Android SDK Build-Tools 34       | build-tools/34.0.0                
+  build-tools;35.0.0                 | 35.0.0        | Android SDK Build-Tools 35       | build-tools/35.0.0                
+  build-tools;35.0.1                 | 35.0.1        | Android SDK Build-Tools 35.0.1   | build-tools/35.0.1                
+  build-tools;36.0.0                 | 36.0.0        | Android SDK Build-Tools 36       | build-tools/36.0.0                
+  build-tools;36.1.0                 | 36.1.0        | Android SDK Build-Tools 36.1     | build-tools/36.1.0                
+  build-tools;37.0.0                 | 37.0.0        | Android SDK Build-Tools 37       | build-tools/37.0.0                
+  cmake;3.31.5                       | 3.31.5        | CMake 3.31.5                     | cmake/3.31.5                      
+  cmake;4.1.2                        | 4.1.2         | CMake 4.1.2                      | cmake/4.1.2                       
+  emulator                           | 36.6.11       | Android Emulator                 | emulator                          
+  extras;android;m2repository        | 47.0.0        | Android Support Repository       | extras/android/m2repository       
+  extras;google;google_play_services | 49            | Google Play services             | extras/google/google_play_services
+  extras;google;m2repository         | 58            | Google Repository                | extras/google/m2repository        
+  ndk;27.3.13750724                  | 27.3.13750724 | NDK (Side by side) 27.3.13750724 | ndk/27.3.13750724                 
+  ndk;28.2.13676358                  | 28.2.13676358 | NDK (Side by side) 28.2.13676358 | ndk/28.2.13676358                 
+  ndk;29.0.14206865                  | 29.0.14206865 | NDK (Side by side) 29.0.14206865 | ndk/29.0.14206865                 
+  platform-tools                     | 37.0.0        | Android SDK Platform-Tools       | platform-tools                    
+  platforms;android-34               | 3             | Android SDK Platform 34          | platforms/android-34              
+  platforms;android-34-ext10         | 1             | Android SDK Platform 34-ext10    | platforms/android-34-ext10        
+  platforms;android-34-ext11         | 1             | Android SDK Platform 34-ext11    | platforms/android-34-ext11        
+  platforms;android-34-ext12         | 1             | Android SDK Platform 34-ext12    | platforms/android-34-ext12        
+  platforms;android-34-ext8          | 1             | Android SDK Platform 34-ext8     | platforms/android-34-ext8         
+  platforms;android-35               | 2             | Android SDK Platform 35          | platforms/android-35              
+  platforms;android-35-ext14         | 1             | Android SDK Platform 35-ext14    | platforms/android-35-ext14        
+  platforms;android-35-ext15         | 1             | Android SDK Platform 35-ext15    | platforms/android-35-ext15        
+  platforms;android-36               | 2             | Android SDK Platform 36          | platforms/android-36              
+  platforms;android-36-ext18         | 1             | Android SDK Platform 36-ext18    | platforms/android-36-ext18        
+  platforms;android-36-ext19         | 1             | Android SDK Platform 36-ext19    | platforms/android-36-ext19        
+  platforms;android-36.1             | 1             | Android SDK Platform 36.1        | platforms/android-36.1            
+  platforms;android-37.0             | 2             | Android SDK Platform 37.0        | platforms/android-37.0            
+  platforms;android-37.1             | 1             | Android SDK Platform 37.1        | platforms/android-37.1            
+
+
+=== INFORMATIONS SUR project.zip ===
+-rw-r--r-- 1 runner runner 292K Jul 17 06:40 project.zip
+45f0aa917b738eb233fb92c5b32442e7bb48602e450026f96ba6d47a99ecce49  project.zip
+Archive:  project.zip
+    testing: LOCAL_WEB_DIAGNOSTIC.txt   OK
+    testing: settings.gradle.kts      OK
+    testing: build.gradle.kts         OK
+    testing: gradle.properties        OK
+    testing: app/build.gradle.kts     OK
+    testing: app/proguard-rules.pro   OK
+    testing: app/src/main/AndroidManifest.xml   OK
+    testing: app/src/main/java/dev/utilisateur/depot/briefingaupieddeloperation/a1wtgn1w/MainActivity.java   OK
+    testing: app/src/main/java/dev/utilisateur/depot/briefingaupieddeloperation/a1wtgn1w/BuildForegroundService.java   OK
+    testing: app/src/main/res/values/strings.xml   OK
+    testing: app/src/main/res/values/colors.xml   OK
+    testing: app/src/main/res/values/styles.xml   OK
+    testing: app/src/main/res/values-v31/styles.xml   OK
+    testing: .github/workflows/build-apk.yml   OK
+    testing: .gitignore               OK
+    testing: README.md                OK
+    testing: app/src/main/assets/www/index.html   OK
+    testing: app/src/main/assets/www/package.json   OK
+    testing: app/src/main/assets/www/README.md   OK
+    testing: app/src/main/assets/www/sharepoint-config.js   OK
+    testing: app/src/main/assets/www/android-bridge.js   OK
+    testing: app/src/main/assets/www/icons/icon-192.png   OK
+    testing: app/src/main/assets/www/icons/icon-512.png   OK
+    testing: app/src/main/res/mipmap-mdpi/ic_launcher.png   OK
+    testing: app/src/main/res/mipmap-hdpi/ic_launcher.png   OK
+    testing: app/src/main/res/mipmap-xhdpi/ic_launcher.png   OK
+    testing: app/src/main/res/mipmap-xxhdpi/ic_launcher.png   OK
+    testing: app/src/main/res/mipmap-xxxhdpi/ic_launcher.png   OK
+    testing: SOURCE_INFO.json         OK
+No errors detected in compressed data of project.zip.
+
+=== ARBORESCENCE DU PROJET GÉNÉRÉ ===
+generated/.github/workflows/build-apk.yml | 18742 octets
+generated/.gitignore | 54 octets
+generated/.gradle/8.9/checksums/checksums.lock | 17 octets
+generated/.gradle/8.9/dependencies-accessors/gc.properties | 0 octets
+generated/.gradle/8.9/executionHistory/executionHistory.bin | 37928 octets
+generated/.gradle/8.9/executionHistory/executionHistory.lock | 17 octets
+generated/.gradle/8.9/fileChanges/last-build.bin | 1 octets
+generated/.gradle/8.9/fileHashes/fileHashes.bin | 20397 octets
+generated/.gradle/8.9/fileHashes/fileHashes.lock | 17 octets
+generated/.gradle/8.9/gc.properties | 0 octets
+generated/.gradle/buildOutputCleanup/buildOutputCleanup.lock | 17 octets
+generated/.gradle/buildOutputCleanup/cache.properties | 49 octets
+generated/.gradle/buildOutputCleanup/outputFiles.bin | 19523 octets
+generated/.gradle/file-system.probe | 8 octets
+generated/.gradle/vcs-1/gc.properties | 0 octets
+generated/.signing/html-apk-stable.p12 | 2810 octets
+generated/.signing/html-apk-stable.sha256 | 65 octets
+generated/LOCAL_WEB_DIAGNOSTIC.txt | 1043 octets
+generated/README.md | 1250 octets
+generated/SOURCE_INFO.json | 1027 octets
+generated/app/build.gradle.kts | 1585 octets
+generated/app/build/intermediates/annotation_processor_list/debug/javaPreCompileDebug/annotationProcessors.json | 2 octets
+generated/app/build/intermediates/incremental/debug/mergeDebugResources/compile-file-map.properties | 1247 octets
+generated/app/build/intermediates/incremental/debug/mergeDebugResources/merged.dir/values-v31/values-v31.xml | 452 octets
+generated/app/build/intermediates/incremental/debug/mergeDebugResources/merged.dir/values/values.xml | 859 octets
+generated/app/build/intermediates/incremental/debug/mergeDebugResources/merger.xml | 4367 octets
+generated/app/build/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties | 1257 octets
+generated/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir/values-v31/values-v31.xml | 452 octets
+generated/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir/values/values.xml | 859 octets
+generated/app/build/intermediates/incremental/debug/packageDebugResources/merger.xml | 4367 octets
+generated/app/build/intermediates/local_only_symbol_list/debug/parseDebugLocalResources/R-def.txt | 147 octets
+generated/app/build/intermediates/merged_res/debug/mergeDebugResources/mipmap-hdpi_ic_launcher.png.flat | 5372 octets
+generated/app/build/intermediates/merged_res/debug/mergeDebugResources/mipmap-xhdpi_ic_launcher.png.flat | 8232 octets
+generated/app/build/intermediates/merged_res/debug/mergeDebugResources/mipmap-xxhdpi_ic_launcher.png.flat | 18296 octets
+generated/app/build/intermediates/merged_res/debug/mergeDebugResources/mipmap-xxxhdpi_ic_launcher.png.flat | 30560 octets
+generated/app/build/intermediates/merged_res/debug/mergeDebugResources/values-v31_values-v31.arsc.flat | 624 octets
+generated/app/build/intermediates/merged_res_blame_folder/debug/mergeDebugResources/out/multi-v2/mergeDebugResources.json | 2788 octets
+generated/app/build/intermediates/merged_res_blame_folder/debug/mergeDebugResources/out/multi-v2/values-v31.json | 689 octets
+generated/app/build/intermediates/merged_res_blame_folder/debug/mergeDebugResources/out/multi-v2/values.json | 2137 octets
+generated/app/build/intermediates/merged_res_blame_folder/debug/mergeDebugResources/out/single/mergeDebugResources.json | 1294 octets
+generated/app/build/intermediates/nested_resources_validation_report/debug/generateDebugResources/nestedResourcesValidationReport.txt | 15 octets
+generated/app/build/intermediates/packaged_res/debug/packageDebugResources/mipmap-hdpi-v4/ic_launcher.png | 5207 octets
+generated/app/build/intermediates/packaged_res/debug/packageDebugResources/mipmap-mdpi-v4/ic_launcher.png | 2508 octets
+generated/app/build/intermediates/packaged_res/debug/packageDebugResources/mipmap-xhdpi-v4/ic_launcher.png | 8063 octets
+generated/app/build/intermediates/packaged_res/debug/packageDebugResources/mipmap-xxhdpi-v4/ic_launcher.png | 18128 octets
+generated/app/build/intermediates/packaged_res/debug/packageDebugResources/mipmap-xxxhdpi-v4/ic_launcher.png | 30391 octets
+generated/app/build/intermediates/packaged_res/debug/packageDebugResources/values-v31/values-v31.xml | 452 octets
+generated/app/build/intermediates/packaged_res/debug/packageDebugResources/values/values.xml | 859 octets
+generated/app/build/intermediates/source_set_path_map/debug/mapDebugSourceSetPaths/file-map.txt | 1183 octets
+generated/app/proguard-rules.pro | 36 octets
+generated/app/src/main/AndroidManifest.xml | 2052 octets
+generated/app/src/main/assets/www/README.md | 2937 octets
+generated/app/src/main/assets/www/android-bridge.js | 1581 octets
+generated/app/src/main/assets/www/icons/icon-192.png | 30391 octets
+generated/app/src/main/assets/www/icons/icon-512.png | 178527 octets
+generated/app/src/main/assets/www/index.html | 262643 octets
+generated/app/src/main/assets/www/package.json | 357 octets
+generated/app/src/main/assets/www/sharepoint-config.js | 1210 octets
+generated/app/src/main/java/dev/utilisateur/depot/briefingaupieddeloperation/a1wtgn1w/BuildForegroundService.java | 5689 octets
+generated/app/src/main/java/dev/utilisateur/depot/briefingaupieddeloperation/a1wtgn1w/MainActivity.java | 18820 octets
+generated/app/src/main/res/mipmap-hdpi/ic_launcher.png | 5207 octets
+generated/app/src/main/res/mipmap-mdpi/ic_launcher.png | 2508 octets
+generated/app/src/main/res/mipmap-xhdpi/ic_launcher.png | 8063 octets
+generated/app/src/main/res/mipmap-xxhdpi/ic_launcher.png | 18128 octets
+generated/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png | 30391 octets
+generated/app/src/main/res/values-v31/styles.xml | 452 octets
+generated/app/src/main/res/values/colors.xml | 161 octets
+generated/app/src/main/res/values/strings.xml | 138 octets
+generated/app/src/main/res/values/styles.xml | 691 octets
+generated/build.gradle.kts | 74 octets
+generated/gradle.properties | 101 octets
+generated/settings.gradle.kts | 350 octets
+
+=== settings.gradle.kts ===
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "Briefing au pied de l'opération"
+include(":app")
+
+=== build.gradle.kts RACINE ===
+plugins {
+    id("com.android.application") version "8.7.3" apply false
+}
+
+=== app/build.gradle.kts ===
+plugins {
+    id("com.android.application")
+}
+
+val stableKeystore = rootProject.file(".signing/html-apk-stable.p12")
+val stableStorePassword = "HTML_APK_BUILDER_STABLE_2026"
+val stableKeyAlias = "html-apk-stable"
+val stableKeyPassword = "HTML_APK_BUILDER_STABLE_2026"
+
+android {
+    namespace = "dev.utilisateur.depot.briefingaupieddeloperation.a1wtgn1w"
+    compileSdk = 35
+
+    defaultConfig {
+        applicationId = "dev.utilisateur.depot.briefingaupieddeloperation.a1wtgn1w"
+        minSdk = 24
+        targetSdk = 35
+        versionCode = 206433632
+        versionName = "1.0.0"
+    }
+
+    signingConfigs {
+        create("stable") {
+            if (stableKeystore.exists()) {
+                storeFile = stableKeystore
+                storePassword = stableStorePassword
+                keyAlias = stableKeyAlias
+                keyPassword = stableKeyPassword
+                storeType = "PKCS12"
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            if (stableKeystore.exists()) {
+                signingConfig = signingConfigs.getByName("stable")
+            }
+        }
+
+        release {
+            isMinifyEnabled = false
+            if (stableKeystore.exists()) {
+                signingConfig = signingConfigs.getByName("stable")
+            }
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+}
+
+=== gradle.properties ===
+org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
+org.gradle.daemon=false
+org.gradle.parallel=false
+
+=== AndroidManifest.xml ===
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-feature android:name="android.hardware.camera.any" android:required="false" />
+    <uses-feature android:name="android.hardware.microphone" android:required="false" />
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="false">
+        <service
+            android:name=".BuildForegroundService"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
+=== FICHIERS JAVA ===
+--- generated/app/src/main/java/dev/utilisateur/depot/briefingaupieddeloperation/a1wtgn1w/MainActivity.java ---
+package dev.utilisateur.depot.briefingaupieddeloperation.a1wtgn1w;
+
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.DownloadManager;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
+import android.view.View;
+import android.view.WindowManager;
+import android.webkit.DownloadListener;
+import android.webkit.GeolocationPermissions;
+import android.webkit.JavascriptInterface;
+import android.webkit.PermissionRequest;
+import android.webkit.URLUtil;
+import android.webkit.ValueCallback;
+import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends Activity {
+    private static final int REQUEST_FILE_CHOOSER = 1001;
+    private static final int REQUEST_LOCATION = 1002;
+    private static final int REQUEST_MEDIA = 1003;
+    private static final int REQUEST_NOTIFICATIONS = 1004;
+
+    private static final boolean ENABLE_LOCATION = true;
+    private static final boolean ENABLE_CAMERA = true;
+    private static final boolean ENABLE_MICROPHONE = true;
+    private static final boolean OPEN_EXTERNAL_LINKS = true;
+
+    private WebView webView;
+    private ValueCallback<Uri[]> fileChooserCallback;
+    private String pendingGeoOrigin;
+    private GeolocationPermissions.Callback pendingGeoCallback;
+    private PermissionRequest pendingMediaRequest;
+
+    @SuppressLint({"SetJavaScriptEnabled", "AllowFileAccessFromFileURLs"})
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        
+        getWindow().setStatusBarColor(Color.parseColor("#FF7A1A"));
+        getWindow().setNavigationBarColor(Color.parseColor("#11141B"));
+
+        webView = new WebView(this);
+        setContentView(webView);
+        webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+
+        WebSettings settings = webView.getSettings();
+        settings.setJavaScriptEnabled(true);
+        settings.setDomStorageEnabled(true);
+        settings.setDatabaseEnabled(true);
+        settings.setAllowFileAccess(true);
+        settings.setAllowContentAccess(true);
+        settings.setAllowFileAccessFromFileURLs(true);
+        settings.setAllowUniversalAccessFromFileURLs(true);
+        settings.setJavaScriptCanOpenWindowsAutomatically(true);
+        settings.setSupportMultipleWindows(false);
+        settings.setMediaPlaybackRequiresUserGesture(false);
+        settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
+
+        webView.setWebViewClient(new WebViewClient() {
+            private boolean handleUri(Uri uri) {
+                if (uri == null) return false;
+                String scheme = uri.getScheme() == null ? "" : uri.getScheme().toLowerCase();
+                if ("file".equals(scheme) || "about".equals(scheme) || "data".equals(scheme) || "blob".equals(scheme)) {
+                    return false;
+                }
+                if (("http".equals(scheme) || "https".equals(scheme)) && !OPEN_EXTERNAL_LINKS) {
+                    return false;
+                }
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, uri));
+                    return true;
+                } catch (Exception error) {
+                    Toast.makeText(MainActivity.this, "Impossible d’ouvrir ce lien", Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+            }
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                return handleUri(request.getUrl());
+            }
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                return handleUri(Uri.parse(url));
+            }
+        });
+
+        webView.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public boolean onShowFileChooser(
+                    WebView view,
+                    ValueCallback<Uri[]> callback,
+                    FileChooserParams params
+            ) {
+                if (fileChooserCallback != null) {
+                    fileChooserCallback.onReceiveValue(null);
+                }
+                fileChooserCallback = callback;
+                try {
+                    startActivityForResult(params.createIntent(), REQUEST_FILE_CHOOSER);
+                    return true;
+                } catch (Exception error) {
+                    fileChooserCallback = null;
+                    Toast.makeText(MainActivity.this, "Sélecteur de fichier indisponible", Toast.LENGTH_LONG).show();
+                    return false;
+                }
+            }
+
+            @Override
+            public void onGeolocationPermissionsShowPrompt(
+                    String origin,
+                    GeolocationPermissions.Callback callback
+            ) {
+                if (!ENABLE_LOCATION) {
+                    callback.invoke(origin, false, false);
+                    return;
+                }
+                if (hasLocationPermission()) {
+                    callback.invoke(origin, true, false);
+                    return;
+                }
+                pendingGeoOrigin = origin;
+                pendingGeoCallback = callback;
+                requestPermissions(
+                        new String[]{
+                                Manifest.permission.ACCESS_FINE_LOCATION,
+                                Manifest.permission.ACCESS_COARSE_LOCATION
+                        },
+                        REQUEST_LOCATION
+                );
+            }
+
+            @Override
+            public void onPermissionRequest(PermissionRequest request) {
+                handleMediaPermissionRequest(request);
+            }
+        });
+
+        webView.setDownloadListener(new DownloadListener() {
+            @Override
+            public void onDownloadStart(
+                    String url,
+                    String userAgent,
+                    String contentDisposition,
+                    String mimeType,
+                    long contentLength
+            ) {
+                try {
+                    if (url.startsWith("blob:") || url.startsWith("data:")) {
+                        Toast.makeText(
+                                MainActivity.this,
+                                "Ce téléchargement doit être exporté par une fonction compatible Android.",
+                                Toast.LENGTH_LONG
+                        ).show();
+                        return;
+                    }
+                    DownloadManager.Request download =
+                            new DownloadManager.Request(Uri.parse(url));
+                    String filename =
+                            URLUtil.guessFileName(url, contentDisposition, mimeType);
+                    download.setTitle(filename);
+                    download.setDescription("Téléchargement depuis Briefing au pied de l'opération");
+                    download.setMimeType(mimeType);
+                    if (userAgent != null) {
+                        download.addRequestHeader("User-Agent", userAgent);
+                    }
+                    download.setNotificationVisibility(
+                            DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED
+                    );
+                    download.setDestinationInExternalPublicDir(
+                            Environment.DIRECTORY_DOWNLOADS,
+                            filename
+                    );
+                    DownloadManager manager =
+                            (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+                    if (manager != null) manager.enqueue(download);
+                } catch (Exception error) {
+                    try {
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+                    } catch (Exception ignored) {
+                        Toast.makeText(
+                                MainActivity.this,
+                                "Téléchargement impossible",
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
+                }
+            }
+        });
+
+        webView.addJavascriptInterface(new NativeBridge(this), "AndroidApp");
+        webView.loadUrl("file:///android_asset/www/index.html");
+    }
+
+    private boolean hasLocationPermission() {
+        return checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+                        == PackageManager.PERMISSION_GRANTED
+                || checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION)
+                        == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void handleMediaPermissionRequest(PermissionRequest request) {
+        List<String> missing = new ArrayList<>();
+
+        for (String resource : request.getResources()) {
+            if (PermissionRequest.RESOURCE_VIDEO_CAPTURE.equals(resource)
+                    && ENABLE_CAMERA
+                    && checkSelfPermission(Manifest.permission.CAMERA)
+                    != PackageManager.PERMISSION_GRANTED) {
+                missing.add(Manifest.permission.CAMERA);
+            }
+            if (PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(resource)
+                    && ENABLE_MICROPHONE
+                    && checkSelfPermission(Manifest.permission.RECORD_AUDIO)
+                    != PackageManager.PERMISSION_GRANTED) {
+                missing.add(Manifest.permission.RECORD_AUDIO);
+            }
+        }
+
+        if (!missing.isEmpty()) {
+            pendingMediaRequest = request;
+            requestPermissions(missing.toArray(new String[0]), REQUEST_MEDIA);
+        } else {
+            grantAllowedMedia(request);
+        }
+    }
+
+    private void grantAllowedMedia(PermissionRequest request) {
+        List<String> allowed = new ArrayList<>();
+
+        for (String resource : request.getResources()) {
+            if (PermissionRequest.RESOURCE_VIDEO_CAPTURE.equals(resource)
+                    && ENABLE_CAMERA
+                    && checkSelfPermission(Manifest.permission.CAMERA)
+                    == PackageManager.PERMISSION_GRANTED) {
+                allowed.add(resource);
+            }
+            if (PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(resource)
+                    && ENABLE_MICROPHONE
+                    && checkSelfPermission(Manifest.permission.RECORD_AUDIO)
+                    == PackageManager.PERMISSION_GRANTED) {
+                allowed.add(resource);
+            }
+        }
+
+        if (allowed.isEmpty()) {
+            request.deny();
+        } else {
+            request.grant(allowed.toArray(new String[0]));
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_FILE_CHOOSER && fileChooserCallback != null) {
+            Uri[] result =
+                    WebChromeClient.FileChooserParams.parseResult(resultCode, data);
+            fileChooserCallback.onReceiveValue(result);
+            fileChooserCallback = null;
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(
+            int requestCode,
+            String[] permissions,
+            int[] grantResults
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == REQUEST_LOCATION && pendingGeoCallback != null) {
+            pendingGeoCallback.invoke(
+                    pendingGeoOrigin,
+                    hasLocationPermission(),
+                    false
+            );
+            pendingGeoCallback = null;
+            pendingGeoOrigin = null;
+        }
+
+        if (requestCode == REQUEST_MEDIA && pendingMediaRequest != null) {
+            grantAllowedMedia(pendingMediaRequest);
+            pendingMediaRequest = null;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (webView != null && webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (webView != null) {
+            webView.removeJavascriptInterface("AndroidApp");
+            webView.stopLoading();
+            webView.destroy();
+            webView = null;
+        }
+        super.onDestroy();
+    }
+
+    public static final class NativeBridge {
+        private final Activity activity;
+
+        NativeBridge(Activity activity) {
+            this.activity = activity;
+        }
+
+        @JavascriptInterface
+        public void showToast(final String message) {
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(activity, message, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void share(final String text) {
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("text/plain");
+                    intent.putExtra(Intent.EXTRA_TEXT, text);
+                    activity.startActivity(Intent.createChooser(intent, "Partager"));
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void copyText(final String text) {
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    ClipboardManager clipboard =
+                            (ClipboardManager) activity.getSystemService(
+                                    Context.CLIPBOARD_SERVICE
+                            );
+                    if (clipboard != null) {
+                        clipboard.setPrimaryClip(
+                                ClipData.newPlainText("Texte", text)
+                        );
+                    }
+                    Toast.makeText(activity, "Copié", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void vibrate(long milliseconds) {
+            Vibrator vibrator =
+                    (Vibrator) activity.getSystemService(Context.VIBRATOR_SERVICE);
+            if (vibrator == null) return;
+
+            long duration = Math.max(1L, Math.min(milliseconds, 2000L));
+            if (android.os.Build.VERSION.SDK_INT >= 26) {
+                vibrator.vibrate(
+                        VibrationEffect.createOneShot(
+                                duration,
+                                VibrationEffect.DEFAULT_AMPLITUDE
+                        )
+                );
+            } else {
+                vibrator.vibrate(duration);
+            }
+        }
+
+        @JavascriptInterface
+        public void openUrl(final String url) {
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        activity.startActivity(
+                                new Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                        );
+                    } catch (Exception ignored) {
+                    }
+                }
+            });
+        }
+
+
+        private void sendBackgroundIntent(
+                String action,
+                String title,
+                String message,
+                boolean success
+        ) {
+            Intent intent = new Intent(activity, BuildForegroundService.class);
+            intent.setAction(action);
+            intent.putExtra(BuildForegroundService.EXTRA_TITLE, title);
+            intent.putExtra(BuildForegroundService.EXTRA_MESSAGE, message);
+            intent.putExtra(BuildForegroundService.EXTRA_SUCCESS, success);
+
+            if (android.os.Build.VERSION.SDK_INT >= 26) {
+                activity.startForegroundService(intent);
+            } else {
+                activity.startService(intent);
+            }
+        }
+
+        @JavascriptInterface
+        public void startBackgroundTask(final String title, final String message) {
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (android.os.Build.VERSION.SDK_INT >= 33 &&
+                            activity.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)
+                                    != PackageManager.PERMISSION_GRANTED) {
+                        activity.requestPermissions(
+                                new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                                REQUEST_NOTIFICATIONS
+                        );
+                    }
+                    sendBackgroundIntent(
+                            BuildForegroundService.ACTION_START,
+                            title,
+                            message,
+                            true
+                    );
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void updateBackgroundTask(final String message) {
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    sendBackgroundIntent(
+                            BuildForegroundService.ACTION_UPDATE,
+                            "Génération APK en cours",
+                            message,
+                            true
+                    );
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void finishBackgroundTask(final String message, final boolean success) {
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    sendBackgroundIntent(
+                            BuildForegroundService.ACTION_FINISH,
+                            success ? "APK prêt" : "Génération interrompue",
+                            message,
+                            success
+                    );
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public boolean supportsBackgroundTask() {
+            return true;
+        }
+
+        @JavascriptInterface
+        public String getPackageName() {
+            return activity.getPackageName();
+        }
+    }
+}
+--- generated/app/src/main/java/dev/utilisateur/depot/briefingaupieddeloperation/a1wtgn1w/BuildForegroundService.java ---
+package dev.utilisateur.depot.briefingaupieddeloperation.a1wtgn1w;
+
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.Service;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
+import android.os.IBinder;
+import android.os.PowerManager;
+
+public class BuildForegroundService extends Service {
+    public static final String ACTION_START = "html.apk.builder.START";
+    public static final String ACTION_UPDATE = "html.apk.builder.UPDATE";
+    public static final String ACTION_FINISH = "html.apk.builder.FINISH";
+    public static final String EXTRA_TITLE = "title";
+    public static final String EXTRA_MESSAGE = "message";
+    public static final String EXTRA_SUCCESS = "success";
+
+    private static final String CHANNEL_PROGRESS = "apk_generation_progress";
+    private static final String CHANNEL_RESULT = "apk_generation_result";
+    private static final int PROGRESS_ID = 4207;
+    private static final int RESULT_ID = 4208;
+
+    private NotificationManager notificationManager;
+    private PowerManager.WakeLock wakeLock;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        notificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        createChannels();
+    }
+
+    private void createChannels() {
+        if (Build.VERSION.SDK_INT < 26 || notificationManager == null) return;
+
+        NotificationChannel progress = new NotificationChannel(
+                CHANNEL_PROGRESS,
+                "Génération APK",
+                NotificationManager.IMPORTANCE_LOW
+        );
+        progress.setDescription("Progression de la génération APK");
+        progress.setShowBadge(false);
+
+        NotificationChannel result = new NotificationChannel(
+                CHANNEL_RESULT,
+                "Résultat de la génération APK",
+                NotificationManager.IMPORTANCE_DEFAULT
+        );
+        result.setDescription("Fin ou échec d’une génération APK");
+
+        notificationManager.createNotificationChannel(progress);
+        notificationManager.createNotificationChannel(result);
+    }
+
+    private PendingIntent openAppIntent() {
+        Intent open = new Intent(this, MainActivity.class);
+        open.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        return PendingIntent.getActivity(
+                this,
+                0,
+                open,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
+    }
+
+    private Notification buildNotification(
+            String channel,
+            String title,
+            String message,
+            boolean ongoing,
+            boolean success
+    ) {
+        Notification.Builder builder = Build.VERSION.SDK_INT >= 26
+                ? new Notification.Builder(this, channel)
+                : new Notification.Builder(this);
+
+        builder.setContentTitle(title)
+                .setContentText(message)
+                .setStyle(new Notification.BigTextStyle().bigText(message))
+                .setSmallIcon(android.R.drawable.stat_sys_upload)
+                .setContentIntent(openAppIntent())
+                .setOngoing(ongoing)
+                .setOnlyAlertOnce(ongoing)
+                .setAutoCancel(!ongoing)
+                .setColor(success ? Color.parseColor("#3DDC97") : Color.parseColor("#FF6B6B"));
+
+        if (ongoing) builder.setProgress(100, 50, true);
+        return builder.build();
+    }
+
+    private void acquireWakeLock() {
+        if (wakeLock != null && wakeLock.isHeld()) return;
+        PowerManager manager =
+                (PowerManager) getSystemService(Context.POWER_SERVICE);
+        if (manager != null) {
+            wakeLock = manager.newWakeLock(
+                    PowerManager.PARTIAL_WAKE_LOCK,
+                    "HtmlApkBuilder:Generation"
+            );
+            wakeLock.acquire(60L * 60L * 1000L);
+        }
+    }
+
+    private void releaseWakeLock() {
+        if (wakeLock != null && wakeLock.isHeld()) wakeLock.release();
+        wakeLock = null;
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        String action = intent == null ? ACTION_START : intent.getAction();
+        String title = intent == null ? "Génération APK en cours" : intent.getStringExtra(EXTRA_TITLE);
+        String message = intent == null ? "Compilation GitHub en cours…" : intent.getStringExtra(EXTRA_MESSAGE);
+        boolean success = intent == null || intent.getBooleanExtra(EXTRA_SUCCESS, true);
+
+        if (title == null || title.trim().isEmpty()) title = "Génération APK";
+        if (message == null || message.trim().isEmpty()) message = "Traitement en cours…";
+
+        if (ACTION_FINISH.equals(action)) {
+            releaseWakeLock();
+            stopForeground(true);
+            if (notificationManager != null) {
+                notificationManager.notify(
+                        RESULT_ID,
+                        buildNotification(CHANNEL_RESULT,title,message,false,success)
+                );
+            }
+            stopSelf();
+            return START_NOT_STICKY;
+        }
+
+        acquireWakeLock();
+        startForeground(
+                PROGRESS_ID,
+                buildNotification(CHANNEL_PROGRESS,title,message,true,true)
+        );
+        return START_STICKY;
+    }
+
+    @Override
+    public void onDestroy() {
+        releaseWakeLock();
+        super.onDestroy();
+    }
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+}
+
+=== RESSOURCES XML ANDROID ===
+--- generated/app/src/main/res/values/strings.xml ---
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Briefing au pied de l&apos;opération</string>
+</resources>--- generated/app/src/main/res/values/colors.xml ---
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brand_color">#FF7A1A</color>
+    <color name="window_background">#11141B</color>
+</resources>--- generated/app/src/main/res/values/styles.xml ---
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:colorAccent">@color/brand_color</item>
+        <item name="android:statusBarColor">@color/brand_color</item>
+        <item name="android:navigationBarColor">@color/window_background</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>--- generated/app/src/main/res/values-v31/styles.xml ---
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/window_background</item>
+        <item name="android:statusBarColor">@color/brand_color</item>
+        <item name="android:navigationBarColor">@color/window_background</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>
+=== DIAGNOSTIC LOCAL DU PROJET WEB ===
 ============================================================
  DIAGNOSTIC LOCAL DU PROJET WEB
 ============================================================
-Date : 2026-07-16T23:44:01.924Z
-Application : Mon application
-Package : dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8
-Fichiers intégrés : 11
-Références HTML analysées : 2
+Date : 2026-07-17T06:40:38.603Z
+Application : Briefing au pied de l'opération
+Package : dev.utilisateur.depot.briefingaupieddeloperation.a1wtgn1w
+Fichiers intégrés : 7
+Références HTML analysées : 1
 Ressources externes : 0
 Erreurs détectées : 0
-Avertissements : 1
+Avertissements : 0
 
 === ERREURS ===
 - Aucune erreur locale évidente.
 
 === AVERTISSEMENTS ===
-- Service Worker détecté : son comportement peut être limité dans une WebView Android locale.
+- Aucun avertissement local évident.
 
 === INFORMATIONS ===
 - window.open détecté : les liens peuvent être redirigés vers le navigateur externe.
@@ -119,26 +1285,477 @@ Avertissements : 1
 
 === INVENTAIRE DES FICHIERS FOURNIS ===
 - index.html
-- android-runtime.js
-- CONFIGURATION-APK.txt
-- CORRECTION-V14.txt
-- manifest.webmanifest
-- README-AUTO-CONVERSION.txt
-- version.json
-- sw.js
+- package.json
+- README.md
+- sharepoint-config.js
 - android-bridge.js
 - icons/icon-192.png
 - icons/icon-512.png
 
 Ce rapport local est complété par latest-diagnostic.txt après la compilation GitHub.
 ============================================================
-=== FICHIERS APK / RAPPORTS PRODUITS ===
-apk-output/apk-verification.txt | 1846 octets
-apk-output/Mon-application-dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8-v206408640-debug.apk | 350977 octets
+=== INVENTAIRE DES FICHIERS WEB ===
+generated/app/src/main/assets/www/README.md | 2937 octets
+generated/app/src/main/assets/www/android-bridge.js | 1581 octets
+generated/app/src/main/assets/www/icons/icon-192.png | 30391 octets
+generated/app/src/main/assets/www/icons/icon-512.png | 178527 octets
+generated/app/src/main/assets/www/index.html | 262643 octets
+generated/app/src/main/assets/www/package.json | 357 octets
+generated/app/src/main/assets/www/sharepoint-config.js | 1210 octets
 
-=== ÉTAT DE LA RELEASE ===
-Un fichier APK a été produit localement par le workflow.
+=== EXTRAIT DU FICHIER index.html ===
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing au pied de l’opération — Nos vies, notre priorité</title>
+<style>
+:root{--red:#c40000;--blue:#28709b;--green:#e6f4df;--lightblue:#e6f3fb;--border:#111}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#eef2f5;color:#111}
+header{background:var(--red);color:#fff;text-align:center;padding:14px;font-size:22px;font-weight:bold}
+.app{display:grid;grid-template-columns:410px 1fr;gap:14px;padding:14px}
+.panel,.preview{background:#fff;border-radius:12px;padding:14px;box-shadow:0 3px 12px rgba(0,0,0,.09)}
+.card{border-bottom:1px solid #ddd;margin-bottom:12px;padding-bottom:12px}
+h2{margin:0 0 8px;color:var(--red);font-size:18px}
+label{display:block;font-weight:bold;font-size:13px;margin-top:8px}
+input,select,textarea{width:100%;padding:9px;border:1px solid #c8ced6;border-radius:8px;margin-top:4px;font-size:14px}
+textarea{min-height:56px;resize:vertical}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:7px}
+.btn{border:1px solid #cfd5dd;background:#f5f7f9;border-radius:8px;padding:9px;cursor:pointer;font-size:13px}
+.btn.active{background:#dff0d8;border-color:#43a047;font-weight:bold}
+.main{width:100%;padding:13px;border:0;background:var(--red);color:white;border-radius:10px;font-weight:bold;margin-top:9px;cursor:pointer}
+.main.secondary{background:#555}
+.mini-btn{margin-top:8px;padding:8px 12px;border:0;background:#28709b;color:white;border-radius:8px;font-weight:bold;cursor:pointer}
+.voie-row{border:1px solid #d0d6dd;background:#fafafa;border-radius:10px;padding:10px;margin:8px 0}
+.voie-row-title{font-weight:bold;color:#333;margin-bottom:6px;font-size:18px}
+.checkline{display:flex;align-items:center;gap:7px;margin-top:8px;font-weight:bold}
+.checkline input{width:auto;margin:0}
+.sheet{max-width:930px;margin:auto;background:white}
+.footer-info{margin:12px 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:13px}
+.footer-info div{border:1px solid #ccc;border-radius:6px;padding:7px}
+.doc-title{border:3px solid var(--border);border-bottom:0;text-align:center;color:var(--red);font-weight:bold;padding:7px;font-size:20px}
+.block{border-left:3px solid var(--border);border-right:3px solid var(--border);border-bottom:3px solid var(--border)}
+.block-title{text-align:center;color:#28709b;font-weight:bold;padding:6px 8px;border-bottom:2px solid var(--border);background:var(--green)}
+.block.blue .block-title{background:var(--lightblue)}
+.block.green .block-title{background:var(--green)}
+.block-content{padding:9px 10px;line-height:1.45;font-size:14px}
+.center{text-align:center}.red{color:var(--red);font-weight:bold}.small{font-size:12px}.read{font-size:15.5px;font-weight:bold}
+.check{margin:5px 0}
+.alert-danger{border:1px solid #c40000;background:#fff3f3;border-radius:8px;padding:8px;margin:8px 0;color:#8a0000;font-weight:bold}
+.alert-warning{border:1px solid #d99a00;background:#fff8e6;border-radius:8px;padding:8px;margin:8px 0;color:#805500;font-weight:bold}
+.alert-ok{border:1px solid #8bbf7a;background:#f7fff4;border-radius:8px;padding:8px;margin:8px 0;color:#225522;font-weight:bold}
+table{width:100%;border-collapse:collapse;margin-top:6px}
+th,td{border:1px solid #777;padding:6px;text-align:left;font-size:13px}
+th{background:#f1f5f8}
+@media(max-width:950px){.app{grid-template-columns:1fr}}
+@media print{
+  header,.panel,.no-print{
+    display:none !important;
+  }
+  body{
+    background:white !important;
+    margin:0 !important;
+  }
+  .app{
+    display:block !important;
+    padding:0 !important;
+  }
+  .preview{
+    display:block !important;
+    box-shadow:none !important;
+    border-radius:0 !important;
+    padding:0 !important;
+  }
+  .sheet{
+    max-width:none !important;
+    width:100% !important;
+    margin:0 !important;
+  }
+  @page{
+    margin:10mm;
+  }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style id="clean-fixed-style">
+.briefing-check-line{display:block;margin:6px 0;line-height:1.35;cursor:pointer}
+.briefing-check{width:18px;height:18px;vertical-align:middle;margin-right:6px;accent-color:#28709b}
+.lam-mise-voie-box{border:2px solid #d0dfea;background:#f7fbff;padding:14px;border-radius:12px;margin:14px 0;display:none}
+.lam-mise-voie-box h3{color:#b40000;margin-top:0}
+.lam-alert-info{margin-top:12px;padding:10px;border-radius:10px;background:#eef7ee;border:1px solid #7db67d;color:#205b20;font-weight:bold}
+.lam-alert-danger{background:#fff0f0!important;border:2px solid #d43b3b!important;color:#9b0000!important}
+.lam-briefing-box{margin-top:8px;border:1px solid #8bbf7a;background:#f7fff4;border-radius:8px;padding:8px}
+.lam-briefing-danger{border:2px solid #c40000!important;background:#fff3f3!important;color:#8a0000!important}
+.lam-voie-details{margin:10px 0 0 30px;padding:10px;border:1px solid #b8d6e8;border-radius:10px;background:#f7fbff}
+.lam-type-card{margin-top:10px;padding:10px;border:1px solid #ddd;border-radius:10px;background:white}
+.presence-admin{max-width:930px;margin:20px auto 12px;border:2px solid #28709b;background:#f4fbff;border-radius:12px;padding:12px}
+.presence-admin h3{margin:0 0 10px;color:#28709b;font-size:20px}
+.presence-admin-actions{display:flex;gap:8px;flex-wrap:wrap}
+.presence-admin-actions button,#presenceAddBtn,#presencePopup button{border:0;border-radius:10px;font-weight:bold;cursor:pointer;padding:12px}
+.btn-blue{background:#28709b;color:white} .btn-red{background:#c40000;color:white} .btn-grey{background:#555;color:white} .btn-green{background:#2e7d32;color:white}
+#signatureSheet{max-width:930px;margin:25px auto 0;background:white;page-break-before:always}
+#presenceAddBtn{width:100%;font-size:20px;padding:16px;box-shadow:0 4px 10px rgba(0,0,0,.18)}
+.presence-table{width:100%;border-collapse:collapse;font-size:13px}
+.presence-table th{background:#e8e8e8;border:2px solid #000;padding:8px}
+.presence-table td{border:1px solid #000;padding:6px;vertical-align:middle}
+.presence-signature{height:75px;display:flex;align-items:center;justify-content:center}
+.presence-signature img{max-height:73px;max-width:100%}
+.presence-row-actions button{width:100%;margin:2px 0;padding:7px;border-radius:8px;font-weight:bold}
+#presencePopup{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:999999;padding:10px}
+.presence-popup-box{background:white;width:min(96vw,900px);max-height:96vh;overflow:auto;border-radius:16px;padding:14px;box-shadow:0 6px 30px rgba(0,0,0,.35)}
+.presence-popup-box h3{margin:0 0 12px;color:#b30000;text-align:center;font-size:28px}
+.presence-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.presence-popup-box label{font-weight:bold;font-size:14px}
+.presence-popup-box input{width:100%;font-size:22px;padding:12px;border:2px solid #111;border-radius:10px;margin-top:4px}
+#presenceCanvas{width:100%;height:42vh;min-height:260px;border:3px solid #111;border-radius:10px;background:white;touch-action:none;margin-top:6px}
+.presence-popup-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.presence-popup-actions button{flex:1;min-width:130px;font-size:17px}
+#presenceStatus{position:fixed;bottom:10px;right:10px;background:#222;color:#fff;padding:8px 10px;border-radius:8px;font-size:12px;z-index:9999;opacity:.85}
+@media(max-width:700px){.presence-grid{grid-template-columns:1fr}.presence-table th,.presence-table td{padding:4px!important;font-size:12px!important}}
+@media print{header,.panel,.no-print,.presence-admin,#presencePopup,#presenceStatus,.presence-action-col{display:none!important}#signatureSheet{display:block!important;visibility:visible!important;page-break-before:always!important}.presence-signature img{display:block!important}}
+</style>
+
+
+<style id="lam-popup-style">
+#lamPopupOverlay{
+ position:fixed; inset:0; background:rgba(0,0,0,.7);
+ display:none; align-items:center; justify-content:center;
+ z-index:999999;
+}
+#lamPopup{
+ background:#fff; width:min(95vw,900px); max-height:92vh;
+ overflow:auto; border-radius:16px; padding:18px;
+}
+.lam-card{
+ border:2px solid #d9d9d9;
+ border-radius:12px;
+ padding:12px;
+ margin:12px 0;
+ background:#fafafa;
+}
+.lam-danger{
+ border:2px solid #c40000 !important;
+ background:#fff3f3 !important;
+ color:#900 !important;
+ padding:10px;
+ border-radius:10px;
+ margin-top:10px;
+ font-weight:bold;
+}
+</style>
+
+
+
+
+
+
+
+
+<style id="single-lam-config-final-style">
+.lam-config-btn,
+button[id^="lamConfigBtn"]{
+  display:none!important;
+}
+#singleLamConfigBtn.single-lam-config-btn{
+  display:none!important;
+  margin:14px 0;
+  padding:14px 16px;
+  border:0;
+  border-radius:12px;
+  background:#28709b;
+  color:white;
+  font-weight:bold;
+  font-size:16px;
+  width:100%;
+}
+#singleLamConfigBtn.single-lam-config-btn.show{
+  display:block!important;
+}
+</style>
+
+
+<style id="travaux-checkbox-style">
+.toggle-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:8px 0 14px;
+}
+.big-check{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border:1px solid #cfd5db;
+  border-radius:12px;
+  padding:12px;
+  font-weight:bold;
+  background:#f7f9fb;
+}
+.big-check input{
+  width:22px;
+  height:22px;
+  accent-color:#28709b;
+}
+@media(max-width:700px){
+  .toggle-grid{grid-template-columns:1fr;}
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style id="print-direct-final-style">
+#printOnlyZone{
+  display:none!important;
+}
+
+@media print{
+  html, body{
+    margin:0!important;
+    padding:0!important;
+    background:#fff!important;
+    overflow:visible!important;
+  }
+
+  /* Masquer toutes les zones de saisie et de gestion */
+  header,
+  .panel,
+  .presence-admin,
+  #presencePopup,
+  #presenceStatus,
+  #printOnlyZone,
+  .no-print{
+    display:none!important;
+    visibility:hidden!important;
+  }
+
+  /* Afficher uniquement la trame générée */
+  .preview{
+    display:block!important;
+    visibility:visible!important;
+    width:100%!important;
+    max-width:190mm!important;
+    margin:0 auto!important;
+    padding:0!important;
+    background:#fff!important;
+  }
+
+  .preview .sheet{
+    display:block!important;
+    visibility:visible!important;
+    width:100%!important;
+    max-width:190mm!important;
+    margin:0 auto!important;
+    padding:0!important;
+    box-sizing:border-box!important;
+    page-break-after:auto!important;
+  }
+
+  .preview .sheet *{
+    visibility:visible!important;
+    box-sizing:border-box!important;
+    max-width:100%!important;
+  }
+
+  /* Afficher la feuille de traçabilité après le briefing */
+  #signatureSheet{
+    display:block!important;
+    visibility:visible!important;
+    width:100%!important;
+    max-width:190mm!important;
+    margin:0 auto!important;
+    padding:0!important;
+    box-sizing:border-box!important;
+    page-break-before:always!important;
+    background:#fff!important;
+  }
+
+  #signatureSheet *{
+    visibility:visible!important;
+    box-sizing:border-box!important;
+    max-width:100%!important;
+  }
+
+  #signatureSheet .no-print,
+  #signatureSheet .presence-action-col,
+  #signatureSheet button{
+    display:none!important;
+    visibility:hidden!important;
+  }
+
+  table{
+    width:100%!important;
+    border-collapse:collapse!important;
+    table-layout:fixed!important;
+  }
+
+  input:not(.briefing-check),
+  select,
+  textarea,
+  button{
+    display:none!important;
+  }
+
+  input.briefing-check{
+    display:inline-block!important;
+    visibility:visible!important;
+  }
+
+  @page{
+    size:A4;
+    margin:8mm;
+  }
+}
+</style>
+
+
+<style id="hide-autres-risques-print-style">
+@media print{
+  .force-no-print,
+  .force-no-print *{
+    display:none!important;
+    visibility:hidden!important;
+    height:0!important;
+    min-height:0!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+  }
+
+  /* Sécurité supplémentaire pour les zones de saisie autour d'Autres risques */
+  textarea[placeholder*="big bags"],
+  textarea[placeholder*="Consigne"],
+  textarea[placeholder*="accès"]{
+    display:none!important;
+    visibility:hidden!important;
+  }
+}
+</style>
+
+
+<style id="presence-resign-popup-style">
+#resignListOverlay{display:none;position:fixed;inset:0;z-index:999998;background:rgba(0,0,0,.55);align-items:center;justify-content:center;padding:16px}
+#resignListBox{background:#fff;width:min(680px,96vw);max-height:90vh;overflow:auto;border-radius:18px;padding:18px;box-shadow:0 8px 30px rgba(0,0,0,.35)}
+#resignListBox h2{color:#b00000;margin:0 0 12px;font-size:26px;text-align:center}
+.resign-person-btn{width:100%;text-align:left;border:2px solid #d0d6dc;background:#f8fafc;border-radius:12px;padding:14px;margin:8px 0;font-size:18px;font-weight:bold}
+.resign-person-btn small{display:block;color:#555;font-size:14px;margin-top:4px}
+.resign-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.resign-actions button{border:0;border-radius:12px;padding:14px;color:#fff;font-size:17px;font-weight:bold}
+.resign-close{background:#555}.resign-add{background:#28709b}
+@media(max-width:600px){.resign-actions{grid-template-columns:1fr}}
+@media print{#resignListOverlay{display:none!important}}
+</style>
+
+
+<style>
+#floatingActionsBtn{
+position:fixed;
+right:18px;
+bottom:90px;
+width:62px;
+height:62px;
+border-radius:50%;
+border:none;
+background:#28709b;
+color:#fff;
+font-size:26px;
+font-weight:bold;
+box-shadow:0 4px 14px rgba(0,0,0,.25);
+z-index:999999;
+cursor:pointer;
+transition:.2s;
+}
+#floatingActionsBtn:active{
+transform:scale(.92);
+}
+#actionsOverlay{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.6);
+z-index:999998;
+align-items:center;
+justify-content:center;
+padding:16px;
+}
+#actionsPopup{
+background:#fff;
+width:min(92vw,420px);
+border-radius:18px;
+padding:18px;
+box-shadow:0 8px 30px rgba(0,0,0,.35);
+animation:popupShow .2s ease;
+}
+@keyframes popupShow{
+from{transform:scale(.9);opacity:0;}
 
 ============================================================
- FIN DU RAPPORT FINAL
+ FIN DU RAPPORT
+ Transmets ce fichier texte dans la conversation pour correction.
 ============================================================
