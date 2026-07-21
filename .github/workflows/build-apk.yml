@@ -22,7 +22,7 @@ jobs:
         run: |
           rm -rf generated diagnostics build.log build-exit-code.txt
           mkdir -p generated diagnostics
-          unzip -oq project.zip -d generated
+          unzip -q project.zip -d generated
 
       - name: Installer Java 17
         uses: actions/setup-java@v4
@@ -178,9 +178,9 @@ jobs:
             echo "============================================================"
             echo " RAPPORT DIAGNOSTIC HTML VERS APK"
             echo "============================================================"
-            echo "Application : Mon application"
-            echo "Package     : dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8"
-            echo "Version     : 1.0.3 (206464846)"
+            echo "Application : Html to apk"
+            echo "Package     : dev.ghostbuilderdev.htmltoapk.htmltoapk.a1f9ifsa"
+            echo "Version     : 10 (206756264)"
             echo "Date UTC    : $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
             echo "Dépôt       : ${{ github.repository }}"
             echo "Branche     : ${{ github.ref_name }}"
@@ -350,13 +350,13 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p apk-output
-          APK_FILE="apk-output/Mon-application-dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8-v206464846-debug.apk"
+          APK_FILE="apk-output/Html-to-apk-dev.ghostbuilderdev.htmltoapk.htmltoapk.a1f9ifsa-v206756264-debug.apk"
           cp generated/app/build/outputs/apk/debug/app-debug.apk "$APK_FILE"
 
           {
             echo "APK=$APK_FILE"
-            echo "PACKAGE_ATTENDU=dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8"
-            echo "VERSION_CODE_ATTENDU=206464846"
+            echo "PACKAGE_ATTENDU=dev.ghostbuilderdev.htmltoapk.htmltoapk.a1f9ifsa"
+            echo "VERSION_CODE_ATTENDU=206756264"
             echo "SHA256=$(sha256sum "$APK_FILE" | awk '{print $1}')"
             "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$APK_FILE" | head -n 8
             "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs "$APK_FILE"
@@ -365,14 +365,14 @@ jobs:
           ACTUAL_PACKAGE=$("$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$APK_FILE" | awk -F"'" '/^package: name=/{print $2; exit}')
           ACTUAL_VERSION=$("$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging "$APK_FILE" | awk -F"'" '/^package: name=/{print $4; exit}')
 
-          [ "$ACTUAL_PACKAGE" = "dev.ghostbuilderdev.htmltoapk.monapplication.a1rsolc8" ] || exit 1
-          [ "$ACTUAL_VERSION" = "206464846" ] || exit 1
+          [ "$ACTUAL_PACKAGE" = "dev.ghostbuilderdev.htmltoapk.htmltoapk.a1f9ifsa" ] || exit 1
+          [ "$ACTUAL_VERSION" = "206756264" ] || exit 1
 
       - name: Publier l’APK comme artefact
         if: success()
         uses: actions/upload-artifact@v4
         with:
-          name: Mon-application-apk
+          name: Html-to-apk-apk
           path: |
             apk-output/*.apk
             apk-output/apk-verification.txt
